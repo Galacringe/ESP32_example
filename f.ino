@@ -49,11 +49,52 @@ void handleRoot() {
 <title>ESP32 Server 12</title>\
 <style>\
 body { background-color: #ffffff; font-family: Arial, Helvetica, Sans-Serif; Color: #000088; }\
+
+
+        .container {
+            display: flex;
+            align-items: center;
+        }
+        .fl
+        {
+        float: left;
+        }
+
+        h1 {
+            margin-right: 10px;
+        }
+
+        #onButton {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #offButton {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #onButton:hover {
+            background-color: darkgreen;
+        }
+
+        #offButton:hover {
+            background-color: darkred;
+        }
+
+
 </style>\
 </head>\
 <body>\
 <h1>Hello from ESP32 Server</h1>\
 <h3>동작 WiFiWebServer</h3>\
+
 	<form action=\"/\" method=\"post\" id=\"sForm\">\
 		이름 : <input type=\"text\" name=\"n1\" value=\"%s\"><br>\
 		번호 : <input type=\"text\" name=\"n2\" value=\"%s\"><br>\
@@ -65,6 +106,26 @@ body { background-color: #ffffff; font-family: Arial, Helvetica, Sans-Serif; Col
 	<form action=\"/\" method=\"post\" id=\"tForm2\">\
   		<button style=\"background-color:%s\" type=\"submit\" form=\"tForm2\" name=\"b2\" value=\"0\">Off</button> <br>\
 	</form>\
+    
+        <div class="container">
+        <h1>LED1</h1>
+        <p>상태: <class="fl" span id="ledStatus">OFF</span></p>
+        <p>온도: <class="fl" span id="temperature">25°C</span></p>
+        <p>습도: <class="fl" span id="humidity">50%</span></p>
+        <button id="onButton">ON</button>
+        <button id="offButton">OFF</button>
+    </div>
+    
+            <div class="container">
+        <h1>LED2</h1>
+        <p>상태: <class="fl" span id="ledStatus">OFF</span></p>
+        <p>온도: <class="fl" span id="temperature">25°C</span></p>
+        <p>습도: <class="fl" span id="humidity">50%</span></p>
+        <button id="onButton">ON</button>
+        <button id="offButton">OFF</button>
+    </div>
+    
+    
 <p>Uptime: %d d %02d:%02d:%02d   num:%d</p>\
 </body>\
 </html>", InName, InNum, btn10, btn11, day, hr, min % 60, sec % 60, inbtn);
